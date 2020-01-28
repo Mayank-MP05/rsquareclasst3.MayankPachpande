@@ -1,22 +1,20 @@
-# Rsquare Class Repo
+# rsquareclasst3.MayankPachpande
+## Details : 
+This is an institute management portal used to collect fee from students and tracks records of Human Resource as well as other expenses.  
+## Platform used :
+Django , Python , Bootstrap , Css 
 
-## How to install
-- Install virtualenv library to create virtual environments using the command ```pip3 install virtualenv```
+## Expected Output:
+![Expected Image](https://drive.google.com/file/d/1zoMSi3alXyulRvlex1IeVaoVq3EHEYB3/view?usp=sharing)
 
-- Create a virtual environment using `virtualenv venv`
+## Submitted Output:
 
-- Activate the environment using `source venv/bin/activate`
+### New Progress Bar Design :=>
+![New ProgressBar Design](https://drive.google.com/file/d/1vKYMbGaRvLvVE8vu7Dt4iwqpOzHdRFXp/view?usp=sharing)
 
-- Install the requirements `pip install -r requirements.txt`
+### New Form Modal :=>
+![New Form Modal](https://drive.google.com/file/d/1fNqbmRzhmilX1CwlIhaFnYkNFeXQOUM4/view?usp=sharing)
 
-- Your project is now set up
+### Drag and Drop UI for Guardians :=>
+![Drag and Drop UI](https://drive.google.com/file/d/1Xdip0U-7lbgtSyhAHnNnGwotNidnrV6J/view?usp=sharing)
 
-
-## Running the project
-- Make sure your environment is activated.
-
-- Run the new migrations(if any) using `python manage.py migrate`
-
-- Run the server using `python manage.py runserver`
-
-- Your project is now running at `localhost:8000`
