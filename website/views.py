@@ -144,6 +144,7 @@ def student_add_new(request):
 @login_required
 def student_guardian(request, pk):
     student = get_object_or_404(models.RsquareUser, pk=pk, role='STUDENT')
+    localStud = student
     if not (request.user.is_owner() or request.user.is_branch_manager()):
         return redirect('dashboard')
     if request.method == 'POST':
@@ -152,11 +153,17 @@ def student_guardian(request, pk):
         phone=request.POST['phone'], email=request.POST['email'], occupation=request.POST['occupation'])
         #return redirect('student-course-add', pk=student.id)
         return render(request, 'student/guardian_form.html')
+
     else:
         localDB = Guardian.objects.all()
-        print(localDB)
+        localDB2 = []
+        for d in localDB:
+            print(d.student , student)
+            if(d.student == student):
+                localDB2.push(d)
+        #print(student)
         args = {
-            "passData" : localDB
+            "passData" : localDB2
         }
         return render(request, 'student/guardian_form.html',args)
 

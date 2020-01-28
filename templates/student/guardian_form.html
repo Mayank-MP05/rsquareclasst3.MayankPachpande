@@ -330,9 +330,10 @@ RsquareClass {% endblock %} {% block top-includes %}
                   style="max-height:40px;z-index:100 ;"
                 >
                   <button class="btn btn-dark m-1">
-                    <a href="/student/add-new/">Previous</a>
+                    <a href="/student/add-new">Previous</a>
                   </button>
-                  <form method="POST" action="/">
+                  <form method="POST">
+                    {% csrf_token %}
                     <button class="btn btn-dark m-1" type="submit">
                       Next
                     </button>
@@ -435,12 +436,11 @@ RsquareClass {% endblock %} {% block top-includes %}
               <div class="row">
                 <ul id="demo1" class="list-group w-100">
                   {% for data in passData %}
-                  <li class="list-group-item">{{ data }}</li>
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-th-list"></span> {{ data }}
+                  </li>
                   {% endfor %}
                 </ul>
-              </div>
-              <div class="row">
-                {% for data in passData %} {{ data }} {% endfor %}
               </div>
             </div>
           </div>
