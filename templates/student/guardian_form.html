@@ -89,13 +89,22 @@ RsquareClass {% endblock %} {% block top-includes %}
                 Add guardian details
               </p>
               <div class="row">
-                <ul id="progressbar">
-                  <li class="active">Basic Details</li>
-                  <li class="current">Guardian Details</li>
-                  <li>Course Details</li>
-                  <li>Payment Details</li>
-                  <li>Batch Details</li>
-                </ul>
+                <div class="row float-left">
+                  <ul id="progressbar">
+                    <li class="active">Basic Details</li>
+                    <li class="current">Guardian Details</li>
+                    <li>Course Details</li>
+                    <li>Payment Details</li>
+                    <li>Batch Details</li>
+                  </ul>
+                </div>
+                <div
+                  class="row float-right"
+                  style="max-height:45px;z-index:100 ;"
+                >
+                  <button class="btn btn-info">Previous</button>
+                  <button class="btn btn-info">Next</button>
+                </div>
               </div>
               <div class="mt-2">
                 <!--
