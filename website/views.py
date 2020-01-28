@@ -152,7 +152,9 @@ def student_guardian(request, pk):
         first_name=request.POST['first_name'], last_name=request.POST['last_name'], aadhar_number=request.POST['aadhar_number'],
         phone=request.POST['phone'], email=request.POST['email'], occupation=request.POST['occupation'])
         #return redirect('student-course-add', pk=student.id)
+       
         return render(request, 'student/guardian_form.html')
+        #return redirect(f'student/add-guardian/{student.id}', pk=student.id)
 
     else:
         localDB = Guardian.objects.all()
@@ -163,8 +165,10 @@ def student_guardian(request, pk):
                 localDB2.push(d)
         #print(student)
         args = {
-            "passData" : localDB2
+            "passData" : localDB,
+            "StudentID":pk
         }
+        print(localDB)
         return render(request, 'student/guardian_form.html',args)
 
 
@@ -280,4 +284,5 @@ def batch_edit(request, pk):
 @login_required
 def renderCourse(request,pk):
     if request.method == 'POST':
-        return render(request, f'student/add-course/{pk}', {'courses': courses})
+        stdr = f'student/add-course/{pk}'
+        return render(request,stdr, {'courses': courses})
