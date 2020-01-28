@@ -172,15 +172,60 @@ RsquareClass {% endblock %} {% block top-includes %}
                                     </div>
                                 </form>
                             -->
+
+                <!--Modal Code goes here -->
+                <div
+                  class="modal fade"
+                  id="FormModal"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                  style="z-index: 122;"
+                >
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                          Modal title
+                        </h5>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body"></div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                          Save changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <!-- Mayank Button Row Code -->
               </div>
               <div class="row m-2 justify-content-end">
                 <button class="btn btn-primary m-1">Reorder</button>
-                <button class="btn btn-warning m-1">Add Guardian</button>
+                <button id="modalBtn" class="btn btn-warning m-1">
+                  Add Guardian
+                </button>
               </div>
 
               <div class="row">
-                <ul id="sortable" class="list-group w-100">
+                <ul id="demo1" class="list-group w-100">
                   <li class="list-group-item">Guardian 1</li>
                   <li class="list-group-item">Guardian 2</li>
                   <li class="list-group-item">Guardian 3</li>
@@ -211,6 +256,7 @@ RsquareClass {% endblock %} {% block top-includes %}
 <script src="{% static 'assets/plugins/datatables/buttons.html5.min.js' %}"></script>
 <script src="{% static 'assets/plugins/datatables/buttons.print.min.js' %}"></script>
 <script src="{% static 'assets/plugins/datatables/buttons.colVis.min.js' %}"></script>
+<script src="{% static 'assets/js/sortable.min.js' %}"></script>
 
 <!-- Select plugins -->
 <script src="{% static 'assets/plugins/select2/js/select2.min.js' %}"></script>
@@ -234,6 +280,24 @@ RsquareClass {% endblock %} {% block top-includes %}
       .done(function() {
         $("form#guardian-basic").submit();
       });
+  });
+  Sortable.create(demo1, {
+    animation: 100,
+    group: "list-1",
+    draggable: ".list-group-item",
+    handle: ".list-group-item",
+    sort: true,
+    filter: ".sortable-disabled",
+    chosenClass: "active"
+  });
+  $(document).ready(function() {
+    // Show the Modal on load
+    $("#FormModal").modal("hide");
+
+    // Hide the Modal
+    $("#modalBtn").click(function() {
+      $("#FormModal").modal("show");
+    });
   });
 </script>
 {% endblock %}
