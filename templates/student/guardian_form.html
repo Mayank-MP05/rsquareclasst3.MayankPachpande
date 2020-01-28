@@ -98,9 +98,12 @@ RsquareClass {% endblock %} {% block top-includes %}
                 role="dialog"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
-                
               >
-                <div class="modal-dialog w-75" role="document" style="min-width: 75%;">
+                <div
+                  class="modal-dialog w-75"
+                  role="document"
+                  style="min-width: 75%;"
+                >
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">
@@ -324,10 +327,16 @@ RsquareClass {% endblock %} {% block top-includes %}
                 </div>
                 <div
                   class="row float-right"
-                  style="max-height:45px;z-index:100 ;"
+                  style="max-height:40px;z-index:100 ;"
                 >
-                  <button class="btn btn-info">Previous</button>
-                  <button class="btn btn-info">Next</button>
+                  <button class="btn btn-dark m-1">
+                    <a href="/student/add-new/">Previous</a>
+                  </button>
+                  <form method="POST" action="/">
+                    <button class="btn btn-dark m-1" type="submit">
+                      Next
+                    </button>
+                  </form>
                 </div>
               </div>
               <div class="mt-2">
@@ -425,10 +434,13 @@ RsquareClass {% endblock %} {% block top-includes %}
 
               <div class="row">
                 <ul id="demo1" class="list-group w-100">
-                  <li class="list-group-item">Guardian 1</li>
-                  <li class="list-group-item">Guardian 2</li>
-                  <li class="list-group-item">Guardian 3</li>
+                  {% for data in passData %}
+                  <li class="list-group-item">{{ data }}</li>
+                  {% endfor %}
                 </ul>
+              </div>
+              <div class="row">
+                {% for data in passData %} {{ data }} {% endfor %}
               </div>
             </div>
           </div>

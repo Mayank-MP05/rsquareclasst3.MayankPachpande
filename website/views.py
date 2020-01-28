@@ -3,8 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 from . import models
-
-
+from website.models import Guardian
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
@@ -151,9 +150,16 @@ def student_guardian(request, pk):
         guardian = models.Guardian.objects.create(student_id=student.profile.pk, relation=request.POST['relation'], salutation=request.POST['salutation'],
         first_name=request.POST['first_name'], last_name=request.POST['last_name'], aadhar_number=request.POST['aadhar_number'],
         phone=request.POST['phone'], email=request.POST['email'], occupation=request.POST['occupation'])
-        return redirect('student-course-add', pk=student.id)
-    else:
+        #return redirect('student-course-add', pk=student.id)
         return render(request, 'student/guardian_form.html')
+    else:
+        localDB = Guardian.objects.all()
+        print(localDB)
+        args = {
+            "passData" : localDB
+        }
+        return render(request, 'student/guardian_form.html',args)
+
 
 
 @login_required
@@ -260,3 +266,11 @@ def batch_edit(request, pk):
     courses = models.Course.objects.filter(branch__name=request.session['curr_branch'])
     subject_groups = models.SubjectGroup.objects.all()
     return render(request, 'batch/batch_add.html', {'courses':courses, 'subject_groups': subject_groups, 'batch': batch})
+
+
+#Render to Course Page
+
+@login_required
+def renderCourse(request,pk):
+    if request.method == 'POST':
+        return render(request, f'student/add-course/{pk}', {'courses': courses})
