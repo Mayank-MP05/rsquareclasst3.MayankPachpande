@@ -1,72 +1,101 @@
-{% extends 'layout.html' %}
-{% load static %}
-{% block title %}
-Dashboard | RsquareClass
-{% endblock %}
-
-{% block top-includes %}
-<link href="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'assets/plugins/datatables/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'assets/plugins/datatables/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'assets/plugins/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" />
-<link href="{% static 'assets/plugins/sweet-alert2/sweetalert2.min.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'assets/plugins/bootstrap-md-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet">
-<link href="{% static 'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" />
+{% extends 'layout.html' %} {% load static %} {% block title %} Dashboard |
+RsquareClass {% endblock %} {% block top-includes %}
+<link
+  href="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'assets/plugins/datatables/buttons.bootstrap4.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'assets/plugins/datatables/responsive.bootstrap4.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'assets/plugins/select2/css/select2.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css' %}"
+  rel="stylesheet"
+/>
+<link
+  href="{% static 'assets/plugins/sweet-alert2/sweetalert2.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'assets/plugins/bootstrap-md-datetimepicker/css/bootstrap-material-datetimepicker.css' %}"
+  rel="stylesheet"
+/>
+<link
+  href="{% static 'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css' %}"
+  rel="stylesheet"
+/>
 <link href="{% static 'assets/css/progressbar.css' %}" rel="stylesheet" />
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 
 <!-- Start content -->
 <div class="content">
-    <div class="container-fluid">        
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="page-title-box">
-                    <h4 class="page-title">Guardian Details</h4>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Agroxa</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Guardian</a></li>
-                    </ol>
-                    
-                    <div class="state-information d-none d-sm-block">
-                        <div class="state-graph">
-                            <div id="header-chart-1"></div>
-                            <div class="info">Balance $ 2,317</div>
-                        </div>
-                        <div class="state-graph">
-                            <div id="header-chart-2"></div>
-                            <div class="info">Item Sold 1230</div>
-                        </div>
-                    </div>
-                </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="page-title-box">
+          <h4 class="page-title">Guardian Details</h4>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="javascript:void(0);">Agroxa</a>
+            </li>
+            <li class="breadcrumb-item active">
+              <a href="javascript:void(0);">Guardian</a>
+            </li>
+          </ol>
+
+          <div class="state-information d-none d-sm-block">
+            <div class="state-graph">
+              <div id="header-chart-1"></div>
+              <div class="info">Balance $ 2,317</div>
             </div>
+            <div class="state-graph">
+              <div id="header-chart-2"></div>
+              <div class="info">Item Sold 1230</div>
+            </div>
+          </div>
         </div>
-        <!-- end row -->
-        
-        <div class="page-content-wrapper">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card m-b-20">
-                        <div class="card-body">
-                            <h4 class="card-title font-16 mt-0 mb-3" style="display: flex; justify-content: space-between;">
-                                <div>Add Student</div>
-                            </h4>
-                            <p class="card-subtitle font-14 mb-4 text-muted">
-                                Add guardian details
-                            </p>   
-                            <div class="row">
-                                <ul id="progressbar">
-                                    <li class="active">Basic Details</li>
-                                    <li class="current">Guardian Details</li>
-                                    <li>Course Details</li>
-                                    <li>Payment Details</li>
-                                    <li>Batch Details</li>
-                                </ul>
-                            </div>
-                            <div class="mt-2">
-                                <!--
+      </div>
+    </div>
+    <!-- end row -->
+
+    <div class="page-content-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <div class="card m-b-20">
+            <div class="card-body">
+              <h4
+                class="card-title font-16 mt-0 mb-3"
+                style="display: flex; justify-content: space-between;"
+              >
+                <div>Add Student</div>
+              </h4>
+              <p class="card-subtitle font-14 mb-4 text-muted">
+                Add guardian details
+              </p>
+              <div class="row">
+                <ul id="progressbar">
+                  <li class="active">Basic Details</li>
+                  <li class="current">Guardian Details</li>
+                  <li>Course Details</li>
+                  <li>Payment Details</li>
+                  <li>Batch Details</li>
+                </ul>
+              </div>
+              <div class="mt-2">
+                <!--
                                 <form action="" method="POST" id="guardian-basic">
                                     {% csrf_token %}
                                     <div class="form-section">
@@ -143,26 +172,34 @@ Dashboard | RsquareClass
                                     </div>
                                 </form>
                             -->
-                            <!-- Mayank Button Row Code -->
-                            <div class="float-right">
-                                <button class="btn btn-primary">Reorder</button>
-                                <button class="btn btn-warning">Add Guardian</button>
-                            </div>
+                <!-- Mayank Button Row Code -->
+              </div>
+              <div class="row m-2 justify-content-end">
+                <button class="btn btn-primary m-1">Reorder</button>
+                <button class="btn btn-warning m-1">Add Guardian</button>
+              </div>
 
-                            </div>                                            
-                        </div>
-                    </div>
-                </div> <!-- end col -->
-            </div> <!-- end row -->            
+              <div class="row">
+                <ul id="sortable" class="list-group w-100">
+                  <li class="list-group-item">Guardian 1</li>
+                  <li class="list-group-item">Guardian 2</li>
+                  <li class="list-group-item">Guardian 3</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- end page content-->            
-    </div>        
-</div> <!-- content -->
+        <!-- end col -->
+      </div>
 
+      <!-- end row -->
+    </div>
+    <!-- end page content-->
+  </div>
+</div>
+<!-- content -->
 
-{% endblock %}
-
-{% block bottom-includes %}
+{% endblock %} {% block bottom-includes %}
 <script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
 <script src="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
 <!-- Buttons examples -->
@@ -173,7 +210,7 @@ Dashboard | RsquareClass
 <script src="{% static 'assets/plugins/datatables/vfs_fonts.js' %}"></script>
 <script src="{% static 'assets/plugins/datatables/buttons.html5.min.js' %}"></script>
 <script src="{% static 'assets/plugins/datatables/buttons.print.min.js' %}"></script>
-<script src="{% static 'assets/plugins/datatables/buttons.colVis.min.js' %}"></script>    
+<script src="{% static 'assets/plugins/datatables/buttons.colVis.min.js' %}"></script>
 
 <!-- Select plugins -->
 <script src="{% static 'assets/plugins/select2/js/select2.min.js' %}"></script>
@@ -188,14 +225,15 @@ Dashboard | RsquareClass
 <script src="{% static 'assets/plugins/parsleyjs/parsley.min.js' %}"></script>
 
 <script src="{% static 'assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js' %}"></script>
-{% endblock %}
-
-{% block script %}
+{% endblock %} {% block script %}
 <script>
-    $('#submit-btn').on("click", function(){
-        $('form#guardian-basic').parsley().whenValidate().done(function(){
-            $('form#guardian-basic').submit();
-        })
-    })    
+  $("#submit-btn").on("click", function() {
+    $("form#guardian-basic")
+      .parsley()
+      .whenValidate()
+      .done(function() {
+        $("form#guardian-basic").submit();
+      });
+  });
 </script>
 {% endblock %}
